@@ -1,0 +1,30 @@
+(cartpole) PS C:\Users\dbsxo\WorkSpace\RL_Cartpole> python .\cartpole_train.py
+2025-08-16 18:02:10.530713: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-08-16 18:02:11.790543: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+2025-08-16 18:02:14.151693: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+C:\Users\dbsxo\anaconda3\envs\cartpole\lib\site-packages\gym\utils\passive_env_checker.py:233: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+  if not isinstance(terminated, (bool, np.bool8)):
+Episode 10: reward = 14.0, running reward = 23.5
+Episode 20: reward = 26.0, running reward = 23.2
+Episode 30: reward = 91.0, running reward = 28.666666666666668
+Episode 40: reward = 36.0, running reward = 31.325
+Episode 50: reward = 125.0, running reward = 42.62
+Episode 60: reward = 154.0, running reward = 57.36666666666667
+Episode 70: reward = 133.0, running reward = 65.64285714285714
+Episode 80: reward = 52.0, running reward = 66.625
+Episode 90: reward = 57.0, running reward = 64.25555555555556
+Episode 100: reward = 42.0, running reward = 62.21
+Episode 110: reward = 37.0, running reward = 65.21
+Episode 120: reward = 50.0, running reward = 68.05
+Episode 130: reward = 41.0, running reward = 69.47
+Episode 140: reward = 122.0, running reward = 74.72
+Episode 150: reward = 74.0, running reward = 75.2
+Episode 160: reward = 76.0, running reward = 68.92
+Episode 170: reward = 148.0, running reward = 68.49
+Episode 180: reward = 846.0, running reward = 96.88
+Solved at episode 181!

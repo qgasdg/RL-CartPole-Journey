@@ -1,0 +1,33 @@
+(cartpole) PS C:\Users\dbsxo\WorkSpace\RL_Cartpole> python .\actor_critic.py
+2025-08-16 18:07:54.498357: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-08-16 18:07:55.615119: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+2025-08-16 18:07:57.683829: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+C:\Users\dbsxo\anaconda3\envs\cartpole\lib\site-packages\gym\utils\passive_env_checker.py:233: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+  if not isinstance(terminated, (bool, np.bool8)):
+episode 10: running reward: 11.23
+episode 20: running reward: 12.48
+episode 30: running reward: 13.97
+episode 40: running reward: 12.48
+episode 50: running reward: 13.52
+episode 60: running reward: 15.79
+episode 70: running reward: 22.36
+episode 80: running reward: 36.84
+episode 90: running reward: 52.97
+episode 100: running reward: 45.48
+episode 110: running reward: 40.39
+episode 120: running reward: 45.57
+episode 130: running reward: 63.19
+episode 140: running reward: 72.44
+episode 150: running reward: 88.12
+episode 160: running reward: 71.46
+episode 170: running reward: 82.67
+episode 180: running reward: 117.02
+episode 190: running reward: 132.97
+episode 200: running reward: 150.49
+episode 210: running reward: 158.07
+Solved at episode 219!
