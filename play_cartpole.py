@@ -4,7 +4,7 @@ from tensorflow.keras import layers
 
 import numpy as np
 
-import gymnasium as gym
+import gym
 
 from PIL import Image
 
@@ -25,7 +25,7 @@ model = keras.Model(inputs=inputs, outputs=[action_probs_output, critic_output])
 # --- 2. 저장해둔 가중치(.h5 파일) 불러오기 ---
 # 파일 이름이 다르면 이 부분을 수정해주세요.
 # weights_filename = "models/TD_actor_critic.weights.h5"
-weights_filename = "models/cartpole_train.weights.h5"
+weights_filename = "models/TD_actor_critic.weights.h5"
 
 if not os.path.exists(weights_filename):
     print(f"오류: 가중치 파일 '{weights_filename}'을 찾을 수 없습니다.")
@@ -51,7 +51,7 @@ else:
             state_tensor = tf.expand_dims(state_tensor, 0)
 
             # 모델을 사용해 행동 확률 예측 (크리틱 값은 필요 없으므로 _ 로 무시)
-            action_probs = model(state_tensor)
+            action_probs, _ = model(state_tensor)
 
             # '탐험'이 필요 없는 플레이 단계에서는 가장 확률이 높은 행동을 선택
             action = np.argmax(np.squeeze(action_probs))
@@ -75,7 +75,7 @@ else:
 
     # 이미지 리스트를 사용해 GIF 파일 저장
     images[0].save(
-        "cartpole_play.gif",
+        "TD_actor_critic.gif",
         save_all=True,
         append_images=images[1:],
         loop=0,  # 0: 무한 반복

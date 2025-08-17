@@ -48,9 +48,9 @@ while True:
     state, _ = env.reset(seed=SEED + episode_count)
     episode_reward = 0
 
-    all_rewards = []
-    all_action_probs = []
-    all_critic_values = []
+    # all_rewards = []
+    # all_action_probs = []
+    # all_critic_values = []
 
     for timestep in range(1, max_steps_per_episode):
         with tf.GradientTape() as tape:
@@ -59,15 +59,15 @@ while True:
 
             action_probs, critic_value = model(state_tensor)
 
-            all_critic_values.append(critic_value[0, 0])
+            # all_critic_values.append(critic_value[0, 0])
 
             action = np.random.choice(num_actions, p=np.squeeze(action_probs))
-            all_action_probs.append(tf.math.log(action_probs[0, action]))
+            # all_action_probs.append(tf.math.log(action_probs[0, action]))
 
-            state, reward, done, _, _ = env.step(action)
+            next_state, reward, done, _, _ = env.step(action)
             episode_reward += reward
 
-            next_state_tensor = tf.convert_to_tensor(state)
+            next_state_tensor = tf.convert_to_tensor(next_state)
             next_state_tensor = tf.expand_dims(next_state_tensor, 0)
 
             _, next_critic_value = model(next_state_tensor)
@@ -77,15 +77,18 @@ while True:
             )  # (1 - done) ensures no future reward if done
             advantage = td_target - critic_value[0, 0]
 
-            critic_loss = huber_loss(critic_value, td_target)
-            actor_loss = -all_action_probs[-1] * advantage
+            critic_loss = huber_loss(
+                tf.expand_dims(td_target, 0), tf.math.log(critic_value[0, 0], 0)
+            )
+            actor_loss = -tf.math.log(action_probs[0, action]) * advantage
 
             loss_value = actor_loss + critic_loss
 
             grads = tape.gradient(loss_value, model.trainable_variables)
             optimizer.apply_gradients(zip(grads, model.trainable_variables))
 
-            state = next_state_tensor.numpy()[0]
+            # state = next_state_tensor.numpy()[0]
+            state = next_state
 
         if done:
             break
